@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar transparent>
+      <ion-title>Add Item</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input [(ngModel)]="title" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input [(ngModel)]="description" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label floating>Price</ion-label>
+        <ion-input [(ngModel)]="price" type="number"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label floating>Image</ion-label>
+        <ion-input [(ngModel)]="image" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button full color="secondary" (click)="save()">Add Item</button>
+</ion-content>
