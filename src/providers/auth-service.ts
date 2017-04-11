@@ -7,10 +7,8 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   isLoggedin: any;
   AuthToken: any;
-  userInfo: any;
   user: any;
-  creds: any;
-  userCreds: any;
+
 
   constructor(public http: Http) {
     this.http = http;
@@ -20,12 +18,16 @@ export class AuthService {
 
   storeUserCredentials(token) {
     
-    window.localStorage.setItem('jamaal', token);
+    window.localStorage.setItem('secretKey', token);
 
   }
 
   storeUserInfo(data) {
     window.localStorage.setItem('user', data);
+  }
+
+  storeUserName(data) {
+    window.localStorage.setItem('username', data);
   }
 
   useCredentials(token) {
@@ -53,9 +55,8 @@ export class AuthService {
     .subscribe(data => {
       if(data.json().success){
        this.storeUserCredentials(data.json().token);
-       console.log(data.json().user);
-       this.storeUserInfo(data.json().user);
-       this.loadUserCredentials();
+       this.storeUserName(data.json().user.username);
+       this.useCredentials(data.json().token);
        
     }
 
@@ -65,6 +66,12 @@ export class AuthService {
   });
   
  
+}
+
+  logout() {
+
+    this.destroyUserCredentials();
+  
   }
 
 }

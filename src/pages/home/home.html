@@ -29,9 +29,13 @@
 
         <h2>{{item.title}}</h2>
         <p>{{item.description}}</p>
+        <p>${{item.price}}</p>
+        <p>Sold By:</p>
+        <button ion-button clear color="danger" (click)="viewSeller(item)"> {{item.seller}}</button>
         
-        <ion-icon name="ion-social-usd" secondary></ion-icon>
-        {{item.price}}
+        <br>
+        
+        <button ion-button clear (click)="viewItem(item)">View Item</button>
       </ion-item>
       <ion-item-options>
         <button ion-button color="danger" (click)="deleteItem(item)">

@@ -10,24 +10,16 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class Profile {
-  data: any;
+  user: any;
   constructor(public http: Http) {
-    this.data = null;
-  }
+
+  
+  
+}
 
   getUser() {
-    if(this.data) {
-      return Promise.resolve(this.data);
-    }
-
-  return new Promise(resolve => {
-    this.http.get('http://localhost:8080/api/user')
-    .map(res => res.json())
-    .subscribe(data => {
-      this.data = data;
-      resolve(this.data);
-    });
-  });
-}
+  
+   
+  }
 
 }

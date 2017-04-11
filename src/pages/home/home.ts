@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { ItemsPage } from '../items/items';
 import { RegisterPage } from '../register/register';
+import { SingleitemPage } from '../singleitem/singleitem';
 import { LoginPage } from '../login/login';
 import { ItemProvider } from '../../providers/item-provider';
 
@@ -25,6 +26,12 @@ export class HomePage {
     });
   }
 
+  viewItem(item) {
+    this.navCtrl.push(SingleitemPage, {
+        item: item
+    });
+  }
+
   addItem() {
     let modal = this.modalCtrl.create(ItemsPage);
 
@@ -32,6 +39,7 @@ export class HomePage {
       if(item){
         this.items.push(item);
         this.itemService.createItem(item);
+        console.log(item);
       }
     });
 

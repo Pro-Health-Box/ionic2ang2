@@ -6,6 +6,7 @@ import { ItemsPage } from '../pages/items/items';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
+import { SingleitemPage } from '../pages/singleitem/singleitem';
 import { ItemProvider } from '../providers/item-provider';
 import { Profile } from '../providers/profile';
 import { SignUp } from '../providers/sign-up';
@@ -20,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemsPage,
     LoginPage,
     RegisterPage,
-    UserprofilePage
+    UserprofilePage,
+    SingleitemPage
 
   ],
   imports: [
@@ -33,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemsPage,
     LoginPage,
     RegisterPage,
-    UserprofilePage
+    UserprofilePage,
+    SingleitemPage
   ],
   providers: [
     StatusBar,
