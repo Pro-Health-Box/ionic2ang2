@@ -3,16 +3,14 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
-/*
-  Generated class for the AuthService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class AuthService {
   isLoggedin: any;
   AuthToken: any;
+  userInfo: any;
+  user: any;
+  creds: any;
+  userCreds: any;
 
   constructor(public http: Http) {
     this.http = http;
@@ -21,8 +19,13 @@ export class AuthService {
   }
 
   storeUserCredentials(token) {
+    
     window.localStorage.setItem('jamaal', token);
 
+  }
+
+  storeUserInfo(data) {
+    window.localStorage.setItem('user', data);
   }
 
   useCredentials(token) {
@@ -46,13 +49,18 @@ export class AuthService {
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://localhost:8080/authenticate', JSON.stringify(user), {headers: headers})
+    this.http.post('http://localhost:8080/authenticate', user , {headers: headers})
     .subscribe(data => {
       if(data.json().success){
-       this.storeUserCredentials(data.json().token);  
+       this.storeUserCredentials(data.json().token);
+       console.log(data.json().user);
+       this.storeUserInfo(data.json().user);
+       this.loadUserCredentials();
+       
     }
+
       else {
-        
+        console.log('Error');
       }
   });
   

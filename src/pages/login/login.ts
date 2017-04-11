@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { HomePage } from '../home/home';
+import { UserprofilePage } from '../userprofile/userprofile';
 
-/*
-  Generated class for the Login page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
+
 @Component({
   selector: 'login',
   templateUrl: 'login.html'
@@ -27,7 +24,11 @@ export class LoginPage {
 
   login(user) {
     this.AuthService.login(user);
-       this.navCtrl.push(HomePage); 
+    
+
+    this.navCtrl.push(UserprofilePage, {
+      user: user
+    }); 
   };
 
   
