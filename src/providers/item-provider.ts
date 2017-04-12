@@ -28,6 +28,18 @@ export class ItemProvider {
   });
 }
 
+  getUserItems(seller) {
+
+    return new Promise(resolve => {
+      this.http.post('http://localhost:8080/api/useritems', { seller: seller} )
+      .map(res => res.json())
+      .subscribe(data => {
+        this.data = data;
+        resolve(this.data);
+      });
+    });
+  }
+
   createItem(item) {
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');

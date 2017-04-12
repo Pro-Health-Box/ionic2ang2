@@ -7,6 +7,7 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { SingleitemPage } from '../pages/singleitem/singleitem';
+import { ViewsellerPage } from '../pages/viewseller/viewseller';
 import { ItemProvider } from '../providers/item-provider';
 import { Profile } from '../providers/profile';
 import { SignUp } from '../providers/sign-up';
@@ -22,7 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     UserprofilePage,
-    SingleitemPage
+    SingleitemPage,
+    ViewsellerPage
 
   ],
   imports: [
@@ -36,7 +38,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     UserprofilePage,
-    SingleitemPage
+    SingleitemPage,
+    ViewsellerPage
   ],
   providers: [
     StatusBar,

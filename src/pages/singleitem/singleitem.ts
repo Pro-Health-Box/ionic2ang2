@@ -8,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-singleitem',
+  selector: 'singleitem',
   templateUrl: 'singleitem.html'
 })
 export class SingleitemPage {

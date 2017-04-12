@@ -28,10 +28,11 @@
         </ion-avatar>
 
         <h2>{{item.title}}</h2>
+        <p>{{item.date}}</p>
         <p>{{item.description}}</p>
         <p>${{item.price}}</p>
         <p>Sold By:</p>
-        <button ion-button clear color="danger" (click)="viewSeller(item)"> {{item.seller}}</button>
+        <button ion-button clear color="danger" (click)="viewSeller(item.seller)"> {{item.seller}}</button>
         
         <br>
         

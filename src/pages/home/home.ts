@@ -4,6 +4,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { ItemsPage } from '../items/items';
 import { RegisterPage } from '../register/register';
 import { SingleitemPage } from '../singleitem/singleitem';
+import { ViewsellerPage } from '../viewseller/viewseller';
 import { LoginPage } from '../login/login';
 import { ItemProvider } from '../../providers/item-provider';
 
@@ -30,6 +31,14 @@ export class HomePage {
     this.navCtrl.push(SingleitemPage, {
         item: item
     });
+  }
+
+  viewSeller(seller) {
+    
+    this.navCtrl.push(ViewsellerPage, {
+        seller: seller
+    });
+
   }
 
   addItem() {
