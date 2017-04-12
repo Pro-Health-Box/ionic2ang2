@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemProvider } from '../../providers/item-provider';
-import { SingleitemPage } from '../../pages/singleitem/singleitem';
+import { ViewselleritemPage } from '../../pages/viewselleritem/viewselleritem';
 
 
 
@@ -25,7 +25,7 @@ export class ViewsellerPage {
   }
 
    viewUserItem(item) {
-    this.navCtrl.push(SingleitemPage, {
+    this.navCtrl.push(ViewselleritemPage, {
         item: item
     });
   }
