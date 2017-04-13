@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Profile } from '../../providers/profile';
 import { AuthService } from '../../providers/auth-service';
-import { HomePage } from '../../pages/home/home';
+import { LoginPage } from '../../pages/login/login';
 
 
 
@@ -39,7 +39,7 @@ export class UserprofilePage {
 
     this.loading.present();
     this.AuthService.logout();
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(LoginPage);
 
   }
 

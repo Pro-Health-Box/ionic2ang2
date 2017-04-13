@@ -1,19 +1,2 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title >Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button color="dark" ion-item (click)="openPage(loginPage)">
-        Login
-      </button>
-      <button color="dark" ion-item (click)="openPage(signupPage)">
-        Signup
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
 
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav>

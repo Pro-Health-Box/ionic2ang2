@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { UserprofilePage } from '../userprofile/userprofile';
 import { LoadingController } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 
 
 
@@ -37,7 +37,7 @@ export class LoginPage {
     this.AuthService.login(user);
     
 
-    this.navCtrl.push(UserprofilePage, {
+    this.navCtrl.push(TabsPage, {
       user: user
     }); 
   };

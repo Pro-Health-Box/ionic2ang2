@@ -2,7 +2,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Shop for Shoes
+      The Kick Pusherz
     </ion-title>
     <ion-buttons end>
         <button ion-button icon-only (click)="addItem()"><ion-icon name="add"></ion-icon></button>
@@ -13,10 +13,6 @@
 <ion-content padding>
   <button ion-button clear (click)="goRegister()">Register</button>
   <button ion-button clear (click)="goLogin()">Login</button>
-  <h2>What type of Shoes will you discover?</h2>
-  <ion-card item-image center>
-    <ion-img width="500" height="400" src="../assets/images/splash.jpeg"></ion-img>
-  </ion-card>
   <ion-searchbar>
 
   </ion-searchbar>
@@ -28,7 +24,18 @@
         </ion-avatar>
 
         <h2>{{item.title}}</h2>
-        <p>{{item.date}}</p>
+        
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1>
+              <ion-badge>{{item.condition}}</ion-badge>
+              <ion-badge>{{item.size}}</ion-badge>
+              <ion-badge>{{item.type}}</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <p color="primary">{{item.date}}</p>
         <p>{{item.description}}</p>
         <p>${{item.price}}</p>
         <p>Sold By:</p>
@@ -38,12 +45,14 @@
         
         <button ion-button clear (click)="viewItem(item)">View Item</button>
       </ion-item>
+
       <ion-item-options>
         <button ion-button color="danger" (click)="deleteItem(item)">
           <ion-icon name="trash"></ion-icon>
           Delete
         </button> 
       </ion-item-options>
+      
     </ion-item-sliding>
 
 

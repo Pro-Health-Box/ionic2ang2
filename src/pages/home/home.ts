@@ -15,9 +15,11 @@ import { ItemProvider } from '../../providers/item-provider';
 export class HomePage {
 
   items: any;
+  loading: any;
 
   constructor(public navCtrl: NavController, public itemService: ItemProvider, public modalCtrl: ModalController) {
-    
+   
+ 
   }
 
   ionViewDidLoad() {
@@ -77,5 +79,6 @@ export class HomePage {
   goLogin() {
     this.navCtrl.push(LoginPage);
   }
+
 
 }

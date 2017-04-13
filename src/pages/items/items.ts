@@ -14,6 +14,10 @@ export class ItemsPage {
   image: any;
   seller: any;
   username: any;
+  brand: any;
+  size: any;
+  type: any;
+  condition: any;
 
   constructor(public viewCtrl: ViewController) {
     this.username = window.localStorage.getItem('username');
@@ -27,7 +31,11 @@ export class ItemsPage {
       description: this.description,
       price: this.price,
       image: this.image,
-      seller: this.username
+      seller: this.username,
+      brand: this.brand,
+      size: this.size,
+      type: this.type,
+      condition: this.condition
     };
 
     this.viewCtrl.dismiss(item);
