@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { AuthService } from '../../../providers/auth-service';
 import { LoadingController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../../tabs/tabs';
+import { RegisterPage } from '../register/register';
 
 
 
@@ -37,10 +38,14 @@ export class LoginPage {
     this.AuthService.login(user);
     
 
-    this.navCtrl.push(TabsPage, {
+    this.navCtrl.setRoot(TabsPage, {
       user: user
     }); 
   };
+
+    goRegister() {
+    this.navCtrl.push(RegisterPage);
+  }
 
   
 

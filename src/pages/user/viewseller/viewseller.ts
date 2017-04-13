@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ItemProvider } from '../../providers/item-provider';
-import { ViewselleritemPage } from '../../pages/viewselleritem/viewselleritem';
+import { ItemProvider } from '../../../providers/item-provider';
+import { ViewselleritemPage } from '../../user/viewselleritem/viewselleritem';
 
 
 

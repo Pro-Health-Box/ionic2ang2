@@ -3,17 +3,17 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
-import { HomePage } from '../pages/home/home';
-import { ItemsPage } from '../pages/items/items';
-import { RegisterPage } from '../pages/register/register';
-import { LoginPage } from '../pages/login/login';
-import { UserprofilePage } from '../pages/userprofile/userprofile';
-import { SingleitemPage } from '../pages/singleitem/singleitem';
-import { ViewsellerPage } from '../pages/viewseller/viewseller';
-import { ViewselleritemPage } from '../pages/viewselleritem/viewselleritem';
-import { SearchPage } from '../pages/search/search';
-import { InboxPage } from '../pages/inbox/inbox';
-import { SettingsPage } from '../pages/settings/settings';
+import { HomePage } from '../pages/main/home/home';
+import { ItemsPage } from '../pages/user/items/items';
+import { RegisterPage } from '../pages/main/register/register';
+import { LoginPage } from '../pages/main/login/login';
+import { UserprofilePage } from '../pages/user/userprofile/userprofile';
+import { SingleitemPage } from '../pages/user/singleitem/singleitem';
+import { ViewsellerPage } from '../pages/user/viewseller/viewseller';
+import { ViewselleritemPage } from '../pages/user/viewselleritem/viewselleritem';
+import { SearchPage } from '../pages/main/search/search';
+import { InboxPage } from '../pages/messages/inbox/inbox';
+import { SettingsPage } from '../pages/main/settings/settings';
 
 
 import { ItemProvider } from '../providers/item-provider';

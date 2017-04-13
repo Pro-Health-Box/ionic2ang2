@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 import { NavController, ModalController } from 'ionic-angular';
-import { ItemsPage } from '../items/items';
+import { ItemsPage } from '../../user/items/items';
 import { RegisterPage } from '../register/register';
-import { SingleitemPage } from '../singleitem/singleitem';
-import { ViewsellerPage } from '../viewseller/viewseller';
+import { SingleitemPage } from '../../user/singleitem/singleitem';
+import { ViewsellerPage } from '../../user/viewseller/viewseller';
 import { LoginPage } from '../login/login';
-import { ItemProvider } from '../../providers/item-provider';
+import { ItemProvider } from '../../../providers/item-provider';
 
 @Component({
   selector: 'home',
@@ -43,33 +43,7 @@ export class HomePage {
 
   }
 
-  addItem() {
-    let modal = this.modalCtrl.create(ItemsPage);
 
-    modal.onDidDismiss(item=> {
-      if(item){
-        this.items.push(item);
-        this.itemService.createItem(item);
-        console.log(item);
-      }
-    });
-
-    modal.present();
-  }
-
-  deleteItem(item) {
-
-    //remove locally
-
-    let index = this.items.indexOf(item);
-
-    if(index > -1) {
-      this.items.splice(index, 1);
-    }
-
-    //remove from database
-    this.itemService.deleteItem(item._id);
-  }
 
   goRegister() {
     this.navCtrl.push(RegisterPage);

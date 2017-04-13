@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { SignUp } from '../../providers/sign-up';
+import { SignUp } from '../../../providers/sign-up';
 import { AlertController } from 'ionic-angular';
 
 

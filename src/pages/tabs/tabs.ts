@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HomePage } from '../home/home';
-import { SearchPage } from '../search/search';
-import { SettingsPage } from '../settings/settings';
-import { InboxPage } from '../inbox/inbox';
-import { UserprofilePage } from '../userprofile/userprofile';
+import { HomePage } from '../../pages/main/home/home';
+import { SearchPage } from '../../pages/main/search/search';
+import { SettingsPage } from '../../pages/main/settings/settings';
+import { InboxPage } from '../../pages/messages/inbox/inbox';
+import { UserprofilePage } from '../../pages/user/userprofile/userprofile';
 
 @Component({
   templateUrl: 'tabs.html'

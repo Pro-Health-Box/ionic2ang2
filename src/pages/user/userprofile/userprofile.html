@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Profile</ion-title>
   </ion-navbar>
 
@@ -8,6 +8,8 @@
 
 
 <ion-content padding>
+    <button ion-button icon-only (click)="addItem()"><ion-icon name="add"></ion-icon></button>
+    <br>
     <h3>Welcome {{username}} </h3>
     <button ion-button (click)="logout()">Logout</button>
 </ion-content>
