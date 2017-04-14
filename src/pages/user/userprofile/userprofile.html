@@ -10,6 +10,33 @@
 <ion-content padding>
     <button ion-button icon-only (click)="addItem()"><ion-icon name="add"></ion-icon></button>
     <br>
-    <h3>Welcome {{username}} </h3>
-    <button ion-button (click)="logout()">Logout</button>
+    <ion-list>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col col-12>
+        <ion-avatar item-left>
+          <img src="https://api.adorable.io/avatars/75/{{profilename}}">
+        </ion-avatar>
+            <br>
+            <h2>{{profilename}}</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            {{following}}<br>
+            Following
+          </ion-col>
+          <ion-col col-3>
+            {{followers}}<br>
+            Followers
+          </ion-col>
+          <ion-col col-3>
+            {{totalfeedback}}%<br>
+              Feedback
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+    
 </ion-content>

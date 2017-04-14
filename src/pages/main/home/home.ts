@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { NavController, ModalController } from 'ionic-angular';
-import { ItemsPage } from '../../user/items/items';
 import { RegisterPage } from '../register/register';
 import { SingleitemPage } from '../../user/singleitem/singleitem';
 import { ViewsellerPage } from '../../user/viewseller/viewseller';
