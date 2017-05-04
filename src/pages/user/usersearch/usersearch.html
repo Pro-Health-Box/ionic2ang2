@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Search for Users</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-searchbar (ionInput)="getUsers($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let user of users">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <ion-avatar item-left>
+              <img src="https://api.adorable.io/avatars/75/{{user.username}}">
+            </ion-avatar>
+        </ion-col>
+
+        <ion-col col-6>
+          {{ user.username }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col col-4>
+        <button ion-button small color="primary">Follow</button>
+      </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    
+  </ion-item>
+</ion-list>
+
+</ion-content>

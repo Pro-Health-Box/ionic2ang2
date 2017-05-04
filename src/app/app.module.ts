@@ -8,6 +8,8 @@ import { ItemsPage } from '../pages/user/items/items';
 import { RegisterPage } from '../pages/main/register/register';
 import { LoginPage } from '../pages/main/login/login';
 import { UserprofilePage } from '../pages/user/userprofile/userprofile';
+import { UsersearchPage } from '../pages/user/usersearch/usersearch';
+
 import { SingleitemPage } from '../pages/user/singleitem/singleitem';
 import { ViewsellerPage } from '../pages/user/viewseller/viewseller';
 import { ViewselleritemPage } from '../pages/user/viewselleritem/viewselleritem';
@@ -38,7 +40,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     SearchPage,
     TabsPage,
     InboxPage,
-    SettingsPage 
+    SettingsPage,
+    UsersearchPage 
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -57,7 +60,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     SearchPage,
     TabsPage,
     InboxPage,
-    SettingsPage 
+    SettingsPage,
+    UsersearchPage 
   ],
   providers: [
     StatusBar,

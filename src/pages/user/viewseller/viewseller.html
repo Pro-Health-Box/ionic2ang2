@@ -14,26 +14,56 @@
 
 
 <ion-content padding>
-    <ion-list no-lines>
-    <ion-item-sliding *ngFor="let item of items">
-      <ion-item>
+    <br>
+    <ion-list>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col col-8>
         <ion-avatar item-left>
-          <img src="https://api.adorable.io/avatars/75/{{item.title}}">
+          <img src="https://api.adorable.io/avatars/75/{{profilename}}">
         </ion-avatar>
+            <br>
+            <h2>{{profilename}}</h2> 
+           <button ion-button small color="primary" (click)="followAlert()"> Follow </button>
+          </ion-col>
+         <ion-col col-4>
+           <strong><p>{{useritemsLength}} Items</p></strong>
+        </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              {{following}}<br>
+              Following
+            </ion-col>
+            <ion-col col-4>
+              {{followers}}<br>
+              Followers
+            </ion-col>
+            <ion-col col-4>
+              {{totalfeedback}}%<br>
+                Feedback
+            </ion-col>
+          </ion-row>
 
-        <h2>{{item.title}}</h2>
-        <p>{{item.date}}</p>
-        <p>{{item.description}}</p>
-        <p>${{item.price}}</p>
         
-        <br>
-        
-        <button ion-button clear (click)="viewUserItem(item)">View Item</button>
-      </ion-item>
-      <ion-item-options>
-      </ion-item-options>
-    </ion-item-sliding>
+        <br><hr><br>
 
+        <h4>Kicks</h4>
+        <ion-row class="useritems" *ngFor="let useritem of useritems">
+          <ion-item>
+          <ion-col col-4>
+          <ion-avatar item-left>
+            <img src="https://api.adorable.io/avatars/75/{{useritem._id}}">
+          </ion-avatar>
+          <h4>{{useritem.title}}</h4>
+          <p>${{useritem.price}}</p>
+          <ion-badge>{{useritem.size}}</ion-badge>
+          </ion-col>
+          </ion-item>
+        </ion-row>
+          
 
-  </ion-list>
+      </ion-grid>
+    </ion-list>
 </ion-content>
