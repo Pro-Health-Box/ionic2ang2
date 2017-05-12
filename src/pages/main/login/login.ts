@@ -15,6 +15,7 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
   user: any;
   loading: any;
+  error: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public AuthService: AuthService, public loadingCtrl: LoadingController) {
 
@@ -23,9 +24,10 @@ export class LoginPage {
       password: ''
     }
 
+
   this.loading = this.loadingCtrl.create({
     spinner: 'crescent',
-    content: 'Please Wait. Logging in ...',
+    content: 'Logging in ...',
     duration: 1500
   });
 
@@ -34,19 +36,20 @@ export class LoginPage {
 
   login(user) {
 
-    this.loading.present();
-    this.AuthService.login(user);
+    this.AuthService.login(user); 
     
-
     this.navCtrl.setRoot(TabsPage, {
       user: user
     }); 
-  };
+     this.loading.present();  
+  }
 
     goRegister() {
     this.navCtrl.push(RegisterPage);
   }
 
-  
+    /*     
+     
+    */
 
 }

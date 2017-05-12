@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { ItemProvider } from '../../../providers/item-provider';
 import { ViewselleritemPage } from '../../user/viewselleritem/viewselleritem';
 import { Profile } from '../../../providers/profile';
+import { ViewfollowersPage } from '../viewfollowers/viewfollowers';
+import { ViewfollowingPage } from '../viewfollowing/viewfollowing';
 
 
 
@@ -11,6 +13,7 @@ import { Profile } from '../../../providers/profile';
   templateUrl: 'viewseller.html'
 })
 export class ViewsellerPage {
+  
   items: any;
   seller: any;
   user: any;
@@ -20,13 +23,18 @@ export class ViewsellerPage {
   following: any;
   useritems: any;
   useritemsLength: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public itemService: ItemProvider, public profile: Profile, public alertCtrl: AlertController ){
+  allFollowers: any;
+  allFollowing: any;
+  index: any;
+  isFollowing: any;
+  
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public itemService: ItemProvider, public profile: Profile, public alertCtrl: AlertController, public toastCtrl: ToastController ){
 
     this.seller = navParams.get('seller');
-    console.log(this.seller);
     this.username = window.localStorage.getItem('username');
-    
+    this.isFollowing = true;
+
     this.itemService.getUserItems(this.seller).then((data) => {
       console.log(data);
       this.items = data;
@@ -40,16 +48,64 @@ export class ViewsellerPage {
         this.following = this.user['following'].length;
         this.useritems = this.user['items'];
         this.useritemsLength = this.user['items'].length;
-        console.log(this.user);
+        this.allFollowers = this.user['followers'];
+        this.allFollowing = this.user['following'];
+        console.log(this.allFollowers);
 
     });
+
+  
+
+
+  }
+  
+  /*
+   showFollowing() {
+      this.index = this.allFollowers.indexOf(this.username);
+      if(this.index > -1) {
+        this.isFollowing = true;
+        console.log(this.isFollowing);
+        } 
+      else {
+        this.isFollowing = false;
+        console.log(this.isFollowing);
+        } 
+    }
+    */
     
+
+  viewFollowers(allFollowers) { 
+    this.navCtrl.push(ViewfollowersPage, {
+        follows: allFollowers
+    });
+  }
+
+  viewFollowing(allFollowing) {
+    this.navCtrl.push(ViewfollowingPage, {
+        following: allFollowing
+    });
   }
 
    viewUserItem(item) {
     this.navCtrl.push(ViewselleritemPage, {
         item: item
     });
+  }
+
+  presentToast() {
+
+    let toast = this.toastCtrl.create({
+      message: 'You are now following ' + this.seller,
+      showCloseButton: true,
+      closeButtonText: "X",
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
 
@@ -76,6 +132,7 @@ export class ViewsellerPage {
           this.profile.addFollower(this.username,this.seller).then((data) => {
             console.log(data);
           });
+          this.presentToast();
         }
       }
     ]

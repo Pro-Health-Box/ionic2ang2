@@ -18,12 +18,12 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public itemService: ItemProvider, public modalCtrl: ModalController) {
    
- 
+    this.initItems();
+
   }
 
-  ionViewDidLoad() {
+  initItems() {
     this.itemService.getItems().then((data) => {
-      console.log(data);
       this.items = data;
     });
   }
@@ -51,6 +51,24 @@ export class HomePage {
 
   goLogin() {
     this.navCtrl.push(LoginPage);
+  }
+
+   getItems(ev: any) {
+    // Reset items back to all of the items
+    if(ev.target.value === ""){
+      this.initItems();
+    }
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        let name: any = item;
+        return (name.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
 

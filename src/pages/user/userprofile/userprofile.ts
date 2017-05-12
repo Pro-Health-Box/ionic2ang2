@@ -5,6 +5,9 @@ import { AuthService } from '../../../providers/auth-service';
 import { ItemProvider } from '../../../providers/item-provider';
 import { ItemsPage } from '../items/items';
 import { UsersearchPage } from '../usersearch/usersearch';
+import { ViewfollowersPage } from '../viewfollowers/viewfollowers';
+import { ViewfollowingPage } from '../viewfollowing/viewfollowing';
+import { SingleitemPage } from '../../user/singleitem/singleitem';
 
 
 
@@ -24,6 +27,8 @@ export class UserprofilePage {
   following: any;
   useritems: any;
   useritemsLength: any;
+  allFollowers: any;
+  allFollowing: any;
   
   constructor( private itemService: ItemProvider, public navCtrl: NavController, public params: NavParams, public profile: Profile, public AuthService: AuthService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, alertCtrl: AlertController) {
 
@@ -36,6 +41,8 @@ export class UserprofilePage {
              
         this.user = data;
         this.profilename = this.user.username;
+        this.allFollowers = this.user['followers'];
+        this.allFollowing = this.user['following'];
         this.followers = this.user['followers'].length;
         this.following = this.user['following'].length;
         this.useritems = this.user['items'];
@@ -51,6 +58,24 @@ export class UserprofilePage {
 
 
     
+  }
+
+  viewFollowers(allFollowers) { 
+    this.navCtrl.push(ViewfollowersPage, {
+        follows: allFollowers
+    });
+  }
+
+  viewFollowing(allFollowing) {
+    this.navCtrl.push(ViewfollowingPage, {
+        following: allFollowing
+    });
+  }
+
+  viewItem(item) {
+    this.navCtrl.push(SingleitemPage, {
+        item: item
+    });
   }
 
 

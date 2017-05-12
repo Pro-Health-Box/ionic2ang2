@@ -25,7 +25,8 @@
         </ion-avatar>
             <br>
             <h2>{{profilename}}</h2> 
-           <button ion-button small color="primary" (click)="followAlert()"> Follow </button>
+           <button *ngIf="isFollowing" ion-button small color="primary" (click)="followAlert()"> Follow </button>
+           <button *ngIf="isFollowing" ion-button small color="light" (click)="unfollowAlert()"> UnFollow </button>
           </ion-col>
          <ion-col col-4>
            <strong><p>{{useritemsLength}} Items</p></strong>
@@ -33,16 +34,22 @@
         </ion-row>
           <ion-row>
             <ion-col col-4>
-              {{following}}<br>
-              Following
+              <button ion-button clear (click)="viewFollowing(allFollowing)">
+                {{following}}<br>
+                Following
+              </button>
             </ion-col>
             <ion-col col-4>
-              {{followers}}<br>
-              Followers
+              <button ion-button clear (click)="viewFollowers(allFollowers)">
+                {{followers}}<br>
+                Followers
+              </button>
             </ion-col>
             <ion-col col-4>
-              {{totalfeedback}}%<br>
+              <button ion-button clear>
+                {{totalfeedback}}%<br>
                 Feedback
+              </button>
             </ion-col>
           </ion-row>
 

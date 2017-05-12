@@ -28,16 +28,22 @@
         </ion-row>
           <ion-row>
             <ion-col col-4>
-              {{following}}<br>
-              Following
+              <button ion-button clear (click)="viewFollowing(allFollowing)">
+                {{following}}<br>
+                Following
+              </button>
             </ion-col>
             <ion-col col-4>
-              {{followers}}<br>
-              Followers
+              <button ion-button clear (click)="viewFollowers(allFollowers)">
+                {{followers}}<br>
+                Followers
+              </button>
             </ion-col>
             <ion-col col-4>
-              {{totalfeedback}}%<br>
+              <button ion-button clear>
+                {{totalfeedback}}%<br>
                 Feedback
+              </button>
             </ion-col>
           </ion-row>
 
@@ -54,6 +60,10 @@
           <h4>{{useritem.title}}</h4>
           <p>${{useritem.price}}</p>
           <ion-badge>{{useritem.size}}</ion-badge>
+          </ion-col>
+          <ion-col col-4>
+            <button item-right ion-button clear (click)="viewItem(useritem)">View
+            </button>
           </ion-col>
           </ion-item>
         </ion-row>

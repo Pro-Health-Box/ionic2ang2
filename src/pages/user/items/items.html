@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar transparent>
-      <ion-title>Add Item</ion-title>
+      <ion-title color="primary">Add Item</ion-title>
       <ion-buttons end>
         <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
       </ion-buttons>
@@ -20,7 +20,7 @@
     <ion-list no-lines>
       <ion-item>
         <ion-label floating>Description</ion-label>
-        <ion-input [(ngModel)]="description" type="text"></ion-input>
+        <ion-textarea [(ngModel)]="description" type="text"></ion-textarea>
       </ion-item>
     </ion-list>
 
@@ -34,15 +34,14 @@
     <ion-list no-lines>
       <ion-item>
         <ion-label floating>Image</ion-label>
-        <ion-input [(ngModel)]="image" type="text"></ion-input>
+        <input[(ngModel)]="image" type="file">
       </ion-item>
     </ion-list>
 
-    <ion-list no-lines>
+    <ion-list>
       <ion-item>
         <ion-label fixed>Brand</ion-label>
         <ion-select [(ngModel)]="brand" name="brand">
-            <ion-option value="All">All</ion-option>
             <ion-option value="Jordan">Jordan</ion-option>
             <ion-option value="Nike">Nike</ion-option>
             <ion-option value="Adidas">Adidas</ion-option>
@@ -55,7 +54,6 @@
       <ion-item>
         <ion-label fixed>Size</ion-label>
         <ion-select [(ngModel)]="size" name="size">
-            <ion-option value="All">All</ion-option>
             <ion-option value="8">8</ion-option>
             <ion-option value="8.5">8.5</ion-option>
             <ion-option value="9">9</ion-option>
@@ -74,7 +72,6 @@
     <ion-item>
         <ion-label fixed>Condition</ion-label>
         <ion-select [(ngModel)]="condition" name="condition">
-            <ion-option value="All">All</ion-option>
             <ion-option value="New">New</ion-option>
             <ion-option value="Used">Used</ion-option>
         </ion-select>
@@ -85,7 +82,6 @@
       <ion-item>
         <ion-label fixed>Type</ion-label>
         <ion-select [(ngModel)]="type" name="type">
-            <ion-option value="All">All</ion-option>
             <ion-option value="Men's">Men's</ion-option>
             <ion-option value="GS">GS</ion-option>
         </ion-select>

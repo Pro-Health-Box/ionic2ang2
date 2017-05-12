@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { ToastController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 
@@ -8,9 +9,11 @@ export class AuthService {
   isLoggedin: any;
   AuthToken: any;
   user: any;
+  loginError: any;
+  
 
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public toastCtrl: ToastController) {
     this.http = http;
     this.isLoggedin = false;
     this.AuthToken = null;
@@ -46,6 +49,22 @@ export class AuthService {
     window.localStorage.clear();
   }
 
+  presentToast() {
+
+    let toast = this.toastCtrl.create({
+      message: this.loginError,
+      showCloseButton: true,
+      closeButtonText: "X",
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+
   login(user) {
 
     let headers= new Headers();
@@ -53,19 +72,18 @@ export class AuthService {
 
     this.http.post('http://localhost:8080/authenticate', user , {headers: headers})
     .subscribe(data => {
+      
       if(data.json().success){
        this.storeUserCredentials(data.json().token);
        this.storeUserName(data.json().user.username);
        this.useCredentials(data.json().token);
-       
-    }
-
-      else {
-        console.log('Error');
       }
-  });
-  
- 
+
+    });
+  (error => {
+    return error;
+  })  
+   
 }
 
   logout() {

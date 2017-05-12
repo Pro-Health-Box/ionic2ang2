@@ -10,7 +10,7 @@
 <ion-content padding>
 
 
-  <ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)">
   </ion-searchbar>
 
   <ion-list no-lines>
