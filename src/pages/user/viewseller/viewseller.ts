@@ -27,6 +27,7 @@ export class ViewsellerPage {
   allFollowing: any;
   index: any;
   isFollowing: any;
+  unFollowing: any;
   
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public itemService: ItemProvider, public profile: Profile, public alertCtrl: AlertController, public toastCtrl: ToastController ){
@@ -51,14 +52,34 @@ export class ViewsellerPage {
         this.allFollowers = this.user['followers'];
         this.allFollowing = this.user['following'];
         console.log(this.allFollowers);
+        console.log(this.allFollowers.indexOf(this.username));
+
+        this.index = this.allFollowers.indexOf(this.username);
+        
+        if(this.index > -1) {
+
+          if(this.username == this.profilename) {
+            this.isFollowing = true;
+            this.unFollowing = true;
+          }
+
+          else {
+            this.isFollowing = true;
+            this.unFollowing = false;
+          }
+
+        }
+
+          else {
+          this.isFollowing = false;
+          this.unFollowing = true;
+        }
 
     });
 
-  
-
-
   }
-  
+
+
   /*
    showFollowing() {
       this.index = this.allFollowers.indexOf(this.username);

@@ -25,8 +25,8 @@
         </ion-avatar>
             <br>
             <h2>{{profilename}}</h2> 
-           <button *ngIf="isFollowing" ion-button small color="primary" (click)="followAlert()"> Follow </button>
-           <button *ngIf="isFollowing" ion-button small color="light" (click)="unfollowAlert()"> UnFollow </button>
+           <button [hidden]="isFollowing" ion-button small color="primary" (click)="followAlert()"> Follow </button>
+           <button [hidden]="unFollowing" ion-button small color="light" (click)="unfollowAlert()"> UnFollow </button>
           </ion-col>
          <ion-col col-4>
            <strong><p>{{useritemsLength}} Items</p></strong>
