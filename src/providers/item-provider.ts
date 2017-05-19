@@ -19,7 +19,7 @@ export class ItemProvider {
     }
 
   return new Promise(resolve => {
-    this.http.get('http://localhost:8080/api/items')
+    this.http.get('https://kickpusherz.herokuapp.com/api/items')
     .map(res => res.json())
     .subscribe(data => {
       this.data = data;
@@ -31,7 +31,7 @@ export class ItemProvider {
   getUserItems(seller) {
 
     return new Promise(resolve => {
-      this.http.post('http://localhost:8080/api/useritems', { seller: seller} )
+      this.http.post('https://kickpusherz.herokuapp.com/api/useritems', { seller: seller} )
       .map(res => res.json())
       .subscribe(data => {
         this.data = data;
@@ -44,14 +44,14 @@ export class ItemProvider {
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://localhost:8080/api/items', JSON.stringify(item), {headers: headers})
+    this.http.post('https://kickpusherz.herokuapp.com/api/items', JSON.stringify(item), {headers: headers})
     .subscribe(res => {
       console.log(res.json());
     });
   }
 
   deleteItem(id) {
-    this.http.delete('http://localhost:8080/api/items/' + id)
+    this.http.delete('https://kickpusherz.herokuapp.com/api/items/' + id)
     .subscribe((res) => {
       console.log(res.json());
     });

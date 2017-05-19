@@ -1,6 +1,13 @@
 {
-  "name": "joe-shop",
-  "app_id": "",
+  "name": "KickPusherz",
+  "app_id": "411d9807",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+        "path": "/api",
+        "proxyUrl": "https://kickpusherz.herokuapp.com/api"
+    }
+  ]
+
 }

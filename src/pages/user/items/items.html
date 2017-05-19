@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content color="light" padding>
     
     <ion-list no-lines>
       <ion-item>
@@ -23,19 +23,10 @@
         <ion-textarea [(ngModel)]="description" type="text"></ion-textarea>
       </ion-item>
     </ion-list>
-
+    
     <ion-list no-lines>
-      <ion-item>
         <ion-label floating>Price</ion-label>
         <ion-input [(ngModel)]="price" type="number"></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <ion-list no-lines>
-      <ion-item>
-        <ion-label floating>Image</ion-label>
-        <input[(ngModel)]="image" type="file">
-      </ion-item>
     </ion-list>
 
     <ion-list>
@@ -88,5 +79,16 @@
       </ion-item>
     </ion-list> 
 
+    <button ion-button full (click)="getPicture()" >
+    <ion-icon name="camera"></ion-icon>Take Photo
+    </button>
+    <br>
+    <ion-grid >
+      <ion-row>
+        <ion-col col-3 *ngFor="let image of images">
+          <img [src]="image" *ngIf="image"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <button ion-button full color="secondary" (click)="save()">Add Item</button>
 </ion-content>

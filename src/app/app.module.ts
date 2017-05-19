@@ -25,6 +25,7 @@ import { Profile } from '../providers/profile';
 import { SignUp } from '../providers/sign-up';
 import { AuthService } from '../providers/auth-service';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -72,11 +73,12 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ItemProvider,
     SignUp,
     AuthService,
-    Profile
+    Profile,
   ]
 })
 export class AppModule {}

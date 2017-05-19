@@ -14,7 +14,7 @@ export class SignUp {
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://localhost:8080/api/signup', JSON.stringify(user), {headers: headers})
+    this.http.post('https://kickpusherz.herokuapp.com/api/signup', JSON.stringify(user), {headers: headers})
     .subscribe(res => {
       console.log(res.json());
     });

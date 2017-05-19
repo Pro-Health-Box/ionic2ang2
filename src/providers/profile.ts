@@ -18,7 +18,7 @@ export class Profile {
   getUserProfile(user) {
 
    return new Promise(resolve => {
-      this.http.post('http://localhost:8080/api/userprofile', { username: user} )
+      this.http.post('https://kickpusherz.herokuapp.com/api/userprofile', { username: user} )
       .map(res => res.json())
       .subscribe(data => {
         this.data = data;
@@ -31,7 +31,7 @@ export class Profile {
   getAllUsers() {
       
       return new Promise(resolve => {
-      this.http.get('http://localhost:8080/api/allUsers')
+      this.http.get('https://kickpusherz.herokuapp.com/api/allUsers')
       .map(res => res.json())
       .subscribe(data => {
         this.data = data;
@@ -45,7 +45,7 @@ export class Profile {
   followUser(username,seller) {
 
     return new Promise(resolve => {
-      this.http.post('http://localhost:8080/api/following', { username:username, seller: seller} )
+      this.http.post('https://kickpusherz.herokuapp.com/api/following', { username:username, seller: seller} )
       .map(res => res.json())
       .subscribe(data => {
         this.data = data;
@@ -58,7 +58,7 @@ export class Profile {
   addFollower(username,seller) {
 
     return new Promise(resolve => {
-      this.http.post('http://localhost:8080/api/follower', { username:username, seller: seller} )
+      this.http.post('https://kickpusherz.herokuapp.com/api/follower', { username:username, seller: seller} )
       .map(res => res.json())
       .subscribe(data => {
         this.data = data;

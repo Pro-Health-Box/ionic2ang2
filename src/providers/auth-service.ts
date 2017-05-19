@@ -70,7 +70,7 @@ export class AuthService {
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://localhost:8080/authenticate', user , {headers: headers})
+    this.http.post('https://kickpusherz.herokuapp.com/authenticate', user , {headers: headers})
     .subscribe(data => {
       
       if(data.json().success){
